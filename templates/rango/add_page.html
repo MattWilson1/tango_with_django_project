@@ -5,6 +5,7 @@
 Rango
 {% endblock %}
 {% block body_block %}
+	{% if user.is_authenticated %}
 		<h1>Add a Page</h1>
 		<div>
 			<form id="category_form" method="post" action="/rango/category/{{category.slug}}/add_page/">
@@ -20,4 +21,8 @@ Rango
 				<input type="submit" name="submit" value="Add Page" />
 			</form>
 		</div>
+	{% else %}
+		<h1>Rango says...</h1>
+		<strong>You have been caught trespassing, only signed in members are allowed to add pages</strong>
+	{% endif %}
 {% endblock %}

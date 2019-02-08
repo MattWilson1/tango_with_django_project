@@ -6,6 +6,7 @@ Rango
 {% endblock %}
 
 {% block body_block %}
+		{% if user.is_authenticated %}
 		<h1>Add a Category</h1>
 		<div>
 			<form id="category_form" method="post" action="/rango/add_category/">
@@ -21,4 +22,8 @@ Rango
 				<input type="submit" name="submit" value="Create Category" />
 			</form>
 		</div>
+		{% else %}
+		<h1>You shouldn't be here...</h1>
+		<div>Return from whence you came, and don't come back until you are signed in</div>
+		{% endif %}
 {% endblock %}
